@@ -41,10 +41,10 @@ io.on('connection', function(socket){
 
         dataToChange = data.dataObject
 
-        counter+= 0.1
+        counter+= 0.05
         newDataPoint = Math.sin(counter);
         
-        if(dataToChange.labels.length < 32){
+        if(dataToChange.labels.length < 200){
             dataToChange.labels.push(counter.toString());
             dataToChange.datasets[0].data.push(newDataPoint);         
             socket.emit('givePointData', dataToChange);    

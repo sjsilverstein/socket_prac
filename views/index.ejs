@@ -31,7 +31,16 @@ var myLineChart = new Chart(ctx, {
     },
 
     // Configuration options go here
-    options: {}
+    options: {
+        scales: {
+  yAxes: [{
+    ticks: {
+     suggestedMax: 1,
+     suggestMin: 1
+     }
+   }]
+  }
+    }
 });
 
         var socket = io();
@@ -52,9 +61,9 @@ var myLineChart = new Chart(ctx, {
 
             console.log("Data Object")
             console.log(data);
-            setTimeout(function(){
-                socket.emit('giveMeMoreData', {dataObject: data});
-            }, 16)
+            
+            socket.emit('giveMeMoreData', {dataObject: data});
+            
             
         });
     })
