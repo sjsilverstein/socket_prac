@@ -44,6 +44,8 @@ var myLineChart = new Chart(ctx, {
             console.log(myLineChart)
             console.log("**TEST**")
             myLineChart.config.data.labels = data.labels;
+            myLineChart.config.data.datasets[0].data = data.datasets[0].data;
+            console.log(data.datasets[0]);
             myLineChart.update();
             console.log("**TEST**")
 
