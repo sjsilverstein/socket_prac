@@ -61,8 +61,10 @@ var myLineChart = new Chart(ctx, {
 
             console.log("Data Object")
             console.log(data);
+            setTimeout(function(){
+                socket.emit('giveMeMoreData', {dataObject: data});
+            }, 15);
             
-            socket.emit('giveMeMoreData', {dataObject: data});
             
             
         });
